@@ -1,11 +1,6 @@
-require "active_support/autoload"
-require "multi_schema/version"
+require "multi_schema/behaviors"
 
 module MultiSchema
-  extend ActiveSupport::Autoload
-
-  autoload :Behaviors
-
   include Behaviors
   extend Behaviors
 end
