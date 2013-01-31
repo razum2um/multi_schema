@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = MultiSchema::VERSION
   gem.authors       = ["Vlad Bokov"]
   gem.email         = ["razum2um@mail.ru"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Allows you to switch over the postgres schemas in runtime inside ruby/rails}
+  gem.summary       = %q{Path switch for postgresql tables accross schemas}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
