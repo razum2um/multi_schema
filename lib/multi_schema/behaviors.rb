@@ -1,6 +1,7 @@
 module MultiSchema
   module Behaviors
     @@disable_message = false
+    @@default_search_path = '"$user",public'
 
     def disable_message=(val)
       @@disable_message = val
@@ -8,6 +9,14 @@ module MultiSchema
 
     def disable_message
       @@disable_message
+    end
+
+    def default_search_path=(val)
+      @@default_search_path = val
+    end
+
+    def default_search_path
+      @@default_search_path
     end
 
     def with_in_schemas(options = nil)
@@ -42,8 +51,8 @@ module MultiSchema
     end
 
     def reset_schema_path
-      puts "--- Restore Schema to public" unless disable_message
-      ActiveRecord::Base.connection.schema_search_path = 'public'
+      puts "--- Restore Schema to #{@@default_search_path}" unless disable_message
+      ActiveRecord::Base.connection.schema_search_path = @@default_search_path
     end
 
     def schema_path
